@@ -29,7 +29,7 @@ const PriceList = (props) => {
                         <span className="col-5">{item.title}</span>
                         <span className="col-2 fw-bold">{item.price}</span>
                         <span className="col-2">{item.date}</span>
-                        <a className="col-1" onClick={() => onModify(item)}>
+                        <a href="/#" className="col-1" onClick={() => onModify(item)}>
 
                             <Ionicon
                                 className="rounded-circle"
@@ -39,7 +39,7 @@ const PriceList = (props) => {
                                 color={"#fff"} />
 
                         </a>
-                        <a className="col-1" onClick={() => onDelete(item)}>
+                        <a href="/#" className="col-1" onClick={() => onDelete(item)}>
 
                             <Ionicon
                                 className="rounded-circle"

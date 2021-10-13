@@ -1,6 +1,8 @@
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
 import PriceList from './components/PriceList';
+import ViewTab from './components/ViewTab';
+import { LIST_VIEW, CHART_VIEW } from './utility';
 
 const items = [
   {
@@ -60,11 +62,17 @@ function App() {
         </a>
       </header> */}
       <div className="container">
+
+        <ViewTab
+          selectedTab={CHART_VIEW}
+          onTabChange={(selectedView) => { console.log(selectedView) }}
+        />
         <PriceList
           items={items}
           onModify={handleModify}
           onDelete={handleDelete}
         />
+
       </div>
 
     </div>

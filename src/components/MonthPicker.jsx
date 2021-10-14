@@ -1,22 +1,68 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import * as utility from '../utility';
 
 class MonthPicker extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {}
+
+    state = {
+        isOpen: false
     }
+
+    handleDropdown = event => {
+        event.preventDefault();
+        this.setState({ isOpen: !this.state.isOpen });
+    }
+
     render() {
-        return (<div className="dropdown">
-            <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                Dropdown button
-            </button>
-            <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                <li><a className="dropdown-item" href="#">Action</a></li>
-                <li><a className="dropdown-item" href="#">Another action</a></li>
-                <li><a className="dropdown-item" href="#">Something else here</a></li>
-            </ul>
-        </div>);
+
+        const { year, month } = this.props;
+        const { isOpen } = this.state;
+        const monthRange = utility.setRange(12, 1);
+        const yearRange = utility.setRange(9, -4).map(number => number + year);
+        // console.log(yearRange);
+
+
+
+        return (
+            <div className="dropdown month-picker-component">
+
+                <h4>Choose the Month</h4>
+                <button
+
+                    onClick={this.handleDropdown}
+                    className="btn btn-secondary dropdown-toggle"
+                    type="button"
+                    id="dropdownMenuButton1"
+                    // data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                >
+
+                    {`Year ${year}  Month ${utility.padLeft(month)}`}
+                </button>
+                {isOpen &&
+                    <div className="dropdown-month-menu" style={{ display: 'block' }}>
+
+                        <div className="row">
+                            <div className="col-2">
+                                {yearRange.map(
+                                    (yearNumber) => (<a href="#" className="dropdown-item">{yearNumber} </a>
+                                    )
+                                )}
+                            </div>
+                            <div className="col-2">
+                                {monthRange.map(
+                                    (monthNumber) => (<a href="#" className="dropdown-item">{utility.padLeft(monthNumber)} </a>
+                                    )
+                                )}                            </div>
+                        </div>
+
+                    </div>
+                }
+
+
+
+            </div >
+        );
     }
 }
 

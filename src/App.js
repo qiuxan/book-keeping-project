@@ -79,7 +79,10 @@ function App() {
           cost={500}
         />
 
-        <MonthPicker />
+        <MonthPicker
+          year={2020}
+          month={2}
+        />
 
       </div>
 

@@ -1,6 +1,7 @@
 // import logo from './logo.svg';
 import './App.css';
 import PriceList from './components/PriceList';
+import TotalPrice from './components/TotalPrice';
 import ViewTab from './components/ViewTab';
 import { LIST_VIEW, CHART_VIEW } from './utility';
 
@@ -71,6 +72,10 @@ function App() {
           items={items}
           onModify={handleModify}
           onDelete={handleDelete}
+        />
+        <TotalPrice
+          income={1000}
+          cost={500}
         />
 
       </div>

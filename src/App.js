@@ -1,5 +1,6 @@
 // import logo from './logo.svg';
 import './App.css';
+import MonthPicker from './components/MonthPicker';
 import PriceList from './components/PriceList';
 import TotalPrice from './components/TotalPrice';
 import ViewTab from './components/ViewTab';
@@ -77,6 +78,8 @@ function App() {
           income={1000}
           cost={500}
         />
+
+        <MonthPicker />
 
       </div>
 

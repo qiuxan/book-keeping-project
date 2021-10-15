@@ -10,3 +10,5 @@ export const setRange = (rangeSize, rangeStartAt) => {
     }
     return arr;
 }
+
+export const cuttentTimePicker = (timeNumber, timeSelected) => timeNumber === timeSelected ? "dropdown-item active" : "dropdown-item";
